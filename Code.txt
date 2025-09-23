@@ -1,0 +1,59 @@
+Step 1: Load Dataset
+
+import pandas as pd
+
+# Load dataset (replace with actual path where you saved the file)
+df = pd.read_csv("medical_appointment_no_shows.csv")
+
+# View first rows
+print(df.head())
+
+Step 2: Handle Missing Values
+
+# Check missing values
+print(df.isnull().sum())
+
+# Drop rows/columns with too many nulls (if any) OR fill missing
+df = df.dropna()  # assuming very few missing values
+
+Step 3: Remove Duplicates
+
+# Remove duplicate rows
+df = df.drop_duplicates()
+
+Step 4: Standardize Text Values
+
+# Example: Gender column (F, M, etc.)
+df['Gender'] = df['Gender'].str.upper().str.strip()
+
+# Example: No-show column values ("Yes"/"No")
+df['No-show'] = df['No-show'].str.strip().str.upper()
+
+Step 5: Convert Date Formats
+
+# Convert to datetime
+df['ScheduledDay'] = pd.to_datetime(df['ScheduledDay'])
+
+df['AppointmentDay'] = pd.to_datetime(df['AppointmentDay'])
+
+Step 6: Rename Column Headers
+
+# Make columns lowercase and replace spaces with underscores
+df.columns = df.columns.str.lower().str.replace(" ", "_")
+
+Step 7: Fix Data Types
+
+# Ensure 'age' is integer
+df['age'] = df['age'].astype(int)
+
+# Confirm date types
+print(df.dtypes)
+
+Deliverable: Cleaned Dataset Summary
+print("✅ Cleaning Summary:")
+print("- Removed missing values:", df.isnull().sum().sum())
+print("- Duplicates removed")
+print("- Standardized text values (gender, no-show)")
+print("- Converted dates to datetime format")
+print("- Renamed column headers to lowercase and underscore format")
+print("- Ensured correct datatypes (age → int, dates → datetime)")
