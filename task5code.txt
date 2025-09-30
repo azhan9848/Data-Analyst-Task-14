@@ -1,0 +1,52 @@
+import pandas as pd
+import numpy as np
+import matplotlib.pyplot as plt
+import seaborn as sns
+
+sns.set_style("darkgrid")
+
+# Load data
+train_path = "train.csv"
+df = pd.read_csv(train_path)
+
+df.head()
+
+# Basic info
+print(df.info())
+print("\nMissing values:\n", df.isnull().sum())
+print("\nDescribe (numeric):\n", df.describe())
+
+# Plots (re-run to generate visuals)
+import matplotlib.pyplot as plt
+import seaborn as sns
+
+# Survival count by sex
+plt.figure(figsize=(6,4))
+sns.countplot(x='Sex', hue='Survived', data=df)
+plt.title('Survival Count by Sex')
+plt.show()
+
+# Survival rate by Pclass
+plt.figure(figsize=(6,4))
+sns.barplot(x='Pclass', y='Survived', data=df, estimator=np.mean, ci=None)
+plt.title('Survival Rate by Passenger Class (Pclass)')
+plt.show()
+
+# Age distribution
+plt.figure(figsize=(7,4))
+plt.hist(df['Age'].dropna(), bins=30)
+plt.title('Age Distribution')
+plt.show()
+
+# Fare by survival
+plt.figure(figsize=(6,4))
+sns.boxplot(x='Survived', y='Fare', data=df)
+plt.title('Fare Distribution by Survival')
+plt.show()
+
+# Correlation heatmap
+plt.figure(figsize=(6,5))
+num_df = df.select_dtypes(include=[np.number]).drop(columns=['PassengerId'], errors='ignore')
+sns.heatmap(num_df.corr(), annot=True, fmt='.2f', cmap='RdBu_r')
+plt.title('Correlation Matrix')
+plt.show()
