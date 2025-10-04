@@ -1,0 +1,11 @@
+order_id,customer_name,product_name,order_date,quantity,price
+1,Alice,Laptop,2025-01-15,1,800.0
+2,Bob,Keyboard,2025-01-20,2,50.0
+3,Charlie,Monitor,2025-02-05,1,200.0
+4,Alice,Mouse,2025-02-07,1,25.0
+5,David,Laptop,2025-03-01,1,820.0
+6,Eve,Headphones,2025-03-10,1,120.0
+7,Frank,Keyboard,2025-03-15,1,55.0
+8,Grace,Monitor,2025-04-01,2,210.0
+9,Hannah,Laptop,2025-04-10,1,830.0
+10,Ian,Mouse,2025-04-15,3,27.0

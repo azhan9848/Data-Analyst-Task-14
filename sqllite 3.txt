@@ -1,0 +1,55 @@
+import sqlite3
+import pandas as pd
+import matplotlib.pyplot as plt
+
+# Step 1: Load CSV into pandas
+df = pd.read_csv("/content/916f63c8-6dc5-43b6-932b-f16f93a7b37d.csv")
+
+# Step 2: Create SQLite database and table
+conn = sqlite3.connect("sales_data.db")
+df.to_sql("sales", conn, if_exists="replace", index=False)
+
+
+# Step 3: Run SQL query (total quantity + revenue per product)
+query = """
+SELECT product_name,
+       SUM(quantity) AS total_qty,
+       SUM(quantity * price) AS total_revenue
+FROM sales
+GROUP BY product_name
+"""
+result = pd.read_sql(query, conn)
+
+# Step 4: Print result summary
+print("Sales Summary:")
+print(result)
+
+# Step 5: Plot bar chart (Revenue per Product)
+plt.figure(figsize=(8,5))
+plt.bar(result['product_name'], result['total_revenue'], color="skyblue", edgecolor="black")
+plt.xlabel("Product")
+plt.ylabel("Total Revenue")
+plt.title("Revenue per Product")
+plt.xticks(rotation=45)
+plt.tight_layout()
+
+# Step 6: Save chart
+plt.savefig("sales_chart.png")
+plt.show()
+
+# Close connection
+conn.close()
+
+
+
+
+
+
+
+
+
+
+
+
+
+
