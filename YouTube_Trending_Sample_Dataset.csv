@@ -1,0 +1,10 @@
+video_id,title,channel_title,category,views,likes,dislikes,comment_count,region,publish_time,trending_date
+v1,Amazing Nature Documentary,NatureWorld,Education,1500000,120000,3000,8000,US,2025-01-10,2025-01-12
+v2,Top 10 Football Goals,SportsZone,Sports,3200000,250000,8000,15000,US,2025-01-12,2025-01-14
+v3,How to Cook Pasta,Foodies,Food,900000,80000,2000,4000,CA,2025-02-05,2025-02-07
+v4,New Smartphone Review,TechGuru,Technology,2500000,210000,7000,12000,IN,2025-02-15,2025-02-17
+v5,Funny Cat Compilation,LaughHub,Entertainment,4800000,400000,10000,22000,IN,2025-03-02,2025-03-05
+v6,Motivational Speech by John,InspireTalks,Motivation,1800000,130000,4000,9000,CA,2025-03-10,2025-03-12
+v7,Latest Bollywood Song,MusicIndia,Music,5200000,480000,12000,25000,IN,2025-03-20,2025-03-23
+v8,Tech Innovations 2025,FutureTech,Technology,2700000,190000,5000,11000,US,2025-04-01,2025-04-03
+v9,Daily Vlog in New York,NYVlogs,Lifestyle,1300000,95000,2500,6000,CA,2025-04-10,2025-04-13
